@@ -1,0 +1,239 @@
+---
+title: "Chapter 2: Introduction to Python Programming"
+author: "Nathan Braun | Exercises by Sergio García Mora"
+format: 
+  html:
+    code-fold: true
+    toc: true
+    toc-location: left
+editor: visual
+jupyter: python3
+---
+
+# Exercises from Chapter 2
+
+## Variables
+
+```{python}
+three_pt_made = 4
+```
+
+Now we can use the variable 
+
+```{python}
+# Print the value
+three_pt_made
+
+# Use it in a calculation
+3 * three_pt_made
+```
+
+## Overwriting a variable
+
+```{python}
+three_pt_made = three_pt_made + 1
+
+print(three_pt_made)
+```
+
+# Types of variables
+
+## Numeric
+
+Numeric variables
+```{python}
+over_under = 216      # int
+fg_percentage = 0.48  # float
+
+```
+
+
+## Strings
+
+*Strings* can use `'` or `"`.
+
+```{python}
+starting_c = 'Karl-Anthony Towns'
+starting_p = "D'Angelo Russel"
+```
+
+Check the type of variable
+
+```{python}
+type(fg_percentage)
+
+type(starting_p)
+```
+
+Insert variables inside strings using **f-strings**.
+
+```{python}
+starters = f'{starting_c}, {starting_p}, etc'
+
+print(starters)
+```
+String methods
+
+```{python}
+# Use . to modify a string
+starting_c.upper()  
+```
+Replace a value 
+
+```{python}
+'Ron Artest'.replace("Artest", "World Peace")
+```
+```{python}
+'lebron james'.capitalize()
+```
+
+```{python}
+'    lebron james'.lstrip()
+```
+
+## Booleans
+
+```{python}
+team1_points = 110
+team2_points = 120
+
+# These are all bools
+team1_won = team1_points > team2_points
+
+team2_won = team1_points < team2_points
+
+teams_tied = team1_points == team2_points
+
+teams_did_not_tie = team1_points != team2_points
+
+type(team1_won)
+```
+
+See results
+
+```{python}
+print(team1_won)
+print(team2_won)
+print(teams_tied)
+print(teams_did_not_tie)
+```
+
+Manipulate bools with `and`, `or`, `not` and parenthesis
+
+```{python}
+shootout = (team1_points > 130) and (team2_points > 130)
+
+
+at_least_one_good_team = (team1_points > 120) or (team2_points > 120)
+
+you_guys_are_bad = not ((team1_points > 100) or (team2_points > 100))
+
+meh = not(shootout or
+      at_least_one_good_team or
+      you_guys_are_bad)
+      
+print(shootout)
+print(at_least_one_good_team)
+print(you_guys_are_bad)
+print(meh)
+```
+# `if` Statements
+
+```{python}
+if team1_won:
+  message = "Nice job Team 1!"
+
+elif team2_won:
+  message = "Nice job Team 2!"
+
+else:
+  message = "How a game end up tied?"
+  
+print(message)
+```
+
+# Lists
+
+Lists are built using square brackets `[]`:
+
+```{python}
+roster_list = ['kevin durant', 'kyrie irving', 'james harden']
+```
+
+Accessing elements of the list
+
+```{python}
+# Pulling the first element of the list
+roster_list[0]
+```
+
+```{python}
+roster_list[0:2]
+```
+Get the last two elements
+
+```{python}
+roster_list[-2:]
+```
+
+# Dictionary
+
+Dictionaries in Python have `keys` and `values`:
+
+```{python}
+roster_dict = {'PF': 'kevin durant',
+               'PG': 'kyrie irving',
+               'SG': 'james harden'}
+               
+print(roster_dict)
+```
+Access an element in the dictionary:
+
+```{python}
+roster_dict['PF']
+```
+Adding a new element to the dictionary
+
+```{python}
+roster_dict['C'] = 'deandre jordan'
+
+roster_dict
+```
+
+## Unpacking
+
+You can assign multiple variables at once:
+
+```{python}
+pg, sg = ['kyrie irving', 'james harden']
+```
+
+The previous chunk is equivalent to do this:
+
+```{python}
+pg = 'kyrie irving'
+
+sg = 'james harden'
+```
+
+
+# Loops
+
+Loops are a way "to do something" for every item in a collection
+
+Let's properly capitalize the player's names using the `title` function:
+
+```{python}
+# Create the list of players
+roster_list = ['kevind durant', 'kyrie irving', 'james harden']
+
+roster_list_upper = ['', '', '']   # List to store results
+i = 0       # Start position to iterate
+for player in roster_list:
+  roster_list_upper[i] = player.title()
+  i = i + 1
+  
+# See output
+print(roster_list_upper)
+```
+
